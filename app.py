@@ -26,7 +26,7 @@ data1 = pd.read_csv('data1.csv')
 strike_rates = pd.read_csv('strike_rates.csv')
         
 items = strike_rates.columns.tolist()
-print(items)
+# print(items)
 app = Flask(__name__)
 
 @app.route('/')
@@ -75,7 +75,7 @@ def score():
         rem_balls = 120 - (6*int(overs) + (overs-int(overs))*10)
         rem_overs = int(rem_balls/6) + 0.1*(rem_balls%6)
         my_prediction = int(runs + (rem_overs)*my_prediction)
-        print(my_prediction)
+        # print(my_prediction)
         return render_template('score_result.html', lower_limit = my_prediction-5, upper_limit = my_prediction+5)
 
 @app.route('/win', methods=['GET','POST'])
